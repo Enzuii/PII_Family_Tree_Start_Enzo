@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System;
 
@@ -8,7 +8,22 @@ namespace Library
     {
         private int number;
 
+        private PersonNode personNode;
+
         private List<Node> children = new List<Node>();
+
+        public PersonNode PersonNode
+        {
+            get
+            {
+                return this.personNode;
+            }
+        }
+        
+        public Node(int edad, string nombre)
+        {
+            this.personNode = new PersonNode(edad, nombre);
+        }
 
         public int Number {
             get
@@ -34,5 +49,9 @@ namespace Library
             this.children.Add(n);
         }
         
+        public void Accept(Visitor visit)
+        {
+            visit.Visit(this);
+        }
     }
 }

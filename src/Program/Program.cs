@@ -7,24 +7,31 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            Node n1 = new Node(1);
-            Node n2 = new Node(2);
-            Node n3 = new Node(3);
-            Node n4 = new Node(4);
-            Node n5 = new Node(5);
-            Node n6 = new Node(6);
-            Node n7 = new Node(7);
-
-            n1.AddChildren(n2);
-            n1.AddChildren(n3);
-
-            n2.AddChildren(n4);
-            n2.AddChildren(n5);
-
-            n3.AddChildren(n6);
-            n3.AddChildren(n7);
+            Node Enzo = new Node(19, "Enzo");
+            Node Pepito = new Node(56, "Pepito");
+            Node Maria = new Node(10, "Maria");
+            Node Juan = new Node(19, "Juan");
+            Node Matias = new Node(25, "Matias");
+            Node Jose = new Node(90, "Jose");
+            Node Paco = new Node(34, "Paco");
+            Node Carla = new Node(27, "Carla");
 
             // visitar el árbol aquí
+
+            Jose.AddChildren(Carla);
+            Jose.AddChildren(Paco);
+            Jose.AddChildren(Pepito);
+            
+            Pepito.AddChildren(Enzo);
+            Pepito.AddChildren(Maria);
+            Pepito.AddChildren(Juan);
+            Pepito.AddChildren(Matias);
+
+            Visitor visitor = new Visitar();
+            Jose.Accept(visitor);
+            Console.WriteLine($"Suma edades: {Visitar.edades}");
+            
+
         }
     }
 }
